@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>poly foo</title>
+  <title>Tom Renn</title>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css styles/main.css -->
@@ -39,19 +39,23 @@
     <core-drawer-panel>
 
       <!-- Drawer -->
-      <core-header-panel drawer>
+      <core-header-panel drawer mode="seamed">
 
         <!-- Drawer Toolbar -->
-        <core-toolbar class="tall banner">
+        <div class="core-header banner">
           <img src="images/profile.jpg" class="middle profile-pic" />
-          <div class="bottom">Thomas Renn</div>
-        </core-toolbar>
+          <div class="content">
+            <span>Tom Renn</span>
+          </div>
+        </div>
 
         <!-- Drawer Content -->
         <core-menu selected="0">
-          <paper-item label="Github"><img src="images/github-64px.png" width="48px" /> Github</paper-item>
-          <paper-item label="LinkedIn"><img src="images/linkedin/black-66px.png" width="48px"/> LinkedIn</paper-item>
-          <core-item label="App"></core-item>
+          <template repeat="{{contactLink in contactLinks}}">
+            <paper-item>
+              <img src="images/{{contactLink.img}}" width="48px" />
+              {{contactLink.label}}
+          </template>
         </core-menu>
 
       </core-header-panel>
@@ -60,9 +64,10 @@
       <core-header-panel main>
 
         <!-- Main Toolbar -->
-        <core-toolbar>
+        <core-toolbar z="0">
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <span>{{appName}}</span>
+          <span flex>{{appName}}</span>
+          <paper-icon-button icon="help" />
         </core-toolbar>
 
         <!-- Main Content -->

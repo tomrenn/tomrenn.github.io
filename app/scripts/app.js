@@ -5,7 +5,13 @@
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#app');
-  app.appName = 'Tom Renn';
+  app.appName = 'Meta App';
+  app.contactLinks = [
+    {label: 'GitHub', img: 'github-64px.png'},
+    {label: 'LinkedIn', img: 'linkedin/black-66px.png'}
+  ];
+
+  document.documentElement.requestFullscreen();
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
