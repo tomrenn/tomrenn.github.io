@@ -61,25 +61,49 @@
       </core-header-panel>
 
       <!-- Main -->
-      <core-header-panel main>
+      <core-header-panel main mode="seamed">
 
         <!-- Main Toolbar -->
-        <core-toolbar z="0">
+        <core-toolbar>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <span flex>{{appName}}</span>
-          <paper-icon-button icon="help" />
+          <paper-icon-button icon="polymer"> help </paper-icon-button>
         </core-toolbar>
+
+        <paper-tabs>
+          <paper-tab> Posts </paper-tab>
+          <paper-tab> Bio </paper-tab>
+        </paper-tabs>
 
         <!-- Main Content -->
         <div class="hero-unit">
-          <yo-greeting></yo-greeting>
+          <h1> Bio </h1>
           <p>You now have</p>
-          <yo-list></yo-list>
+
+          <template repeat="{{fact in tomFacts}}">
+            <paper-checkbox checked="{{fact.checked}}"
+              label="{{fact.label}}"> </paper-checkbox>
+            <template if="{{fact.hasLink}}">
+              <a href="{{fact.link}}">
+                <core-icon icon="link"></core-icon></a>
+            </template>
+            <br/>
+          </template>
+    
         </div>
+
       </core-header-panel>
+
+
+      <paper-dialog heading="Hello!" id="polymerStatus"
+        transition="core-transition-bottom">
+        <p> This is a dialog yo </p>
+      </paper-dialog>
+
     </core-drawer-panel>
 
   </template>
+
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
