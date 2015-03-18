@@ -21,7 +21,7 @@
       link: 'images/arc-reactor.png',
       hasLink: true,
       checked:true},
-    {label: 'This statement is true', checked: false}
+    {label: 'Include a clever unchecked goal', checked: false}
   ];
 
   var polyStatusButton = app.querySelector("[icon=help]");

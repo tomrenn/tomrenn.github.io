@@ -16,7 +16,9 @@ body {
   background-color: #eee;
   border-radius: 6px;
   padding: 60px;
+  padding-top: 40px;
 }
+
 
 .hero-unit h1 {
   font-size: 60px;
@@ -68,7 +70,26 @@ paper-dialog {
     margin: 0px;
 
     paper-item {
-      opacity: .30;
+      /*opacity: .30;*/
+    }
+
+    img.big-icon {
+
+    }
+    .big-icon {
+      color: #737373;
+      width: 26px;
+      height: 26px;
+    }
+
+    .nav-header {
+      font-weight: normal;
+      margin-left: 16px;
+      opacity: 0.54;
+    }
+
+    .nav-text {
+      margin-left: 24px;
     }
   }
 }

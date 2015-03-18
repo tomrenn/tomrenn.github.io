@@ -51,10 +51,21 @@
 
         <!-- Drawer Content -->
         <core-menu selected="0">
+          <paper-item>
+            <core-icon class="big-icon" icon="view-stream"> </core-icon>
+            <span class="nav-text"> Posts </span>
+          </paper-item>
+          <paper-item>
+            <core-icon class="big-icon" icon="account-box"> </core-icon>
+            <span class="nav-text"> About </span>
+          </paper-item>
+
+
+          <h4 class="nav-header"> Social </h4>
           <template repeat="{{contactLink in contactLinks}}">
             <paper-item>
-              <img src="images/{{contactLink.img}}" width="48px" />
-              {{contactLink.label}}
+              <img src="images/{{contactLink.img}}" class="big-icon" />
+              <span class="nav-text"> {{contactLink.label}} </span>
           </template>
         </core-menu>
 
@@ -70,15 +81,9 @@
           <paper-icon-button icon="polymer"> help </paper-icon-button>
         </core-toolbar>
 
-        <paper-tabs>
-          <paper-tab> Posts </paper-tab>
-          <paper-tab> Bio </paper-tab>
-        </paper-tabs>
-
         <!-- Main Content -->
         <div class="hero-unit">
-          <h1> Bio </h1>
-          <p>You now have</p>
+          <h1> Tom Facts </h1>
 
           <template repeat="{{fact in tomFacts}}">
             <paper-checkbox checked="{{fact.checked}}"
