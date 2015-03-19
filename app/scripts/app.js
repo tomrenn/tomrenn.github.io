@@ -10,7 +10,7 @@
     {label: 'GitHub', img: 'github-64px.png'},
     {label: 'LinkedIn', img: 'linkedin/black-66px.png'}
   ];
-
+ 
   app.tomFacts = [
     {label: 'Can juggle', checked: true},
     {label: 'Finished a MOOC',
