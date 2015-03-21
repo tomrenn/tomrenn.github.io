@@ -26,16 +26,30 @@
 
   var polyStatusButton = app.querySelector("[icon=help]");
   var polyStatusDialog = app.querySelector('#polymerStatus');
-  polyStatusButton.addEventListener("click", function(){
-    console.log('wtf');
-    polyStatusDialog.toggle();
-  });
+  // polyStatusButton.addEventListener("click", function(){
+  //   console.log('wtf');
+  //   polyStatusDialog.toggle();
+  // });
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
   app.addEventListener('template-bound', function() {
     console.log('Our app is ready to rock!');
+
+    var ajax = document.querySelector("core-ajax");
+    ajax.addEventListener("core-response", 
+      function(e) {
+        console.log(e.detail.response.posts);
+        // document.querySelector('template').model = {
+        //   response: e.detail.response
+        // };
+      }
+    );
   });
+
+
+
+
 
 // wrap document so it plays nice with other libraries
 // http://www.polymer-project.org/platform/shadow-dom.html#wrappers

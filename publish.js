@@ -10,7 +10,7 @@ var path = require('path');
 var fs = require('fs')
 
 var POSTS_PER_PAGE = 5;
-var outputDir = 'dist/'
+var OUTPUT_DIR = 'dist/posts'
 var posts = process.argv.slice(2); // posts
 var pages = [];
 
@@ -20,7 +20,9 @@ while (posts.length > 0){
   pages.push(page);
 }
 
-console.log(pages);
+if (!fs.existsSync(OUTPUT_DIR)){
+  fs.mkdirSync(OUTPUT_DIR)
+}
 
 // bugfix for stupid hljs class not getting added
 // https://github.com/chjj/marked/pull/418
@@ -44,7 +46,7 @@ pages.forEach(function(page, index){
   posts.forEach(function(filename) {
     fs.readFile(filename, 'utf8', function(err, data) {
       var html = marked(data);
-      var newFilename = path.basename(filename, '.md') + '.html';
+      // var newFilename = path.basename(filename, '.md') + '.html';
 
       page[filename] = html;
 
@@ -55,8 +57,11 @@ pages.forEach(function(page, index){
         }
       }
       // all posts have been transformed in the page
-      fs.writeFile('page-'+index+'.json', JSON.stringify(page), function(err){
-        console.log(err);
+      var pageFilename = OUTPUT_DIR + '/page-' + index + '.json';
+      fs.writeFile(pageFilename, JSON.stringify(page, null, 2), function(err){
+        if (err){
+          console.log(err);
+        }
       });
 
     });
