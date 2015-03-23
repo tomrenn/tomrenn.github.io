@@ -6,9 +6,11 @@
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#app');
   app.appName = 'Meta App';
+  app.selectedPage = 'posts';
+
   app.contactLinks = [
-    {label: 'GitHub', img: 'github-64px.png'},
-    {label: 'LinkedIn', img: 'linkedin/black-66px.png'}
+    {label: 'LinkedIn', img: 'linkedin/grey-66px.png', link: 'https://linkedin.com/in/tomrenn'},
+    {label: 'GitHub', img: 'github-grey-64px.png', link: 'https://github.com/tomrenn'},
   ];
  
   app.tomFacts = [
@@ -40,6 +42,12 @@
     ajax.addEventListener("core-response", 
       function(e) {
         console.log(e.detail.response.posts);
+        var data = e.detail.response;
+        var posts = []
+        data.posts.forEach(function(post){
+          posts.push(data[post]);
+        })
+        app.posts = posts;
         // document.querySelector('template').model = {
         //   response: e.detail.response
         // };

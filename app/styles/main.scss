@@ -1,4 +1,5 @@
-$primary-color: #0288D1; /* blue */
+$primary-color: #2196F3; /* blue */
+$primary-dark: #1976D2;
 $accent-color: #FF5722; /* deep orange */
 
 body {
@@ -7,16 +8,43 @@ body {
   color: #333;
 }
 
+
+
+.big-icon {
+  color: #737373;
+  width: 26px;
+  height: 26px;
+}
+
+paper-item::shadow #ripple, paper-item #ripple {
+  color: $primary-dark;
+}
+
+paper-item {
+  ::shadow #ripple {
+    color: $primary-dark;
+  }
+}
+
+paper-item.core-selected {
+  color: $primary-dark;
+
+  core-icon {
+    color: $primary-dark;
+  }
+}
+
 .hero-unit {
   margin: 50px auto 0 auto;
-  width: 300px;
+  width: 40%;
+  min-width: 300px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
   background-color: #eee;
   border-radius: 6px;
   padding: 60px;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 
 
@@ -36,6 +64,13 @@ body {
 paper-dialog {
      width: 50%;
      min-width: 430px;
+}
+
+.post-column {
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 20px;
 }
 
 
@@ -68,29 +103,20 @@ paper-dialog {
 
   core-menu {
     margin: 0px;
+  }
 
-    paper-item {
-      /*opacity: .30;*/
-    }
+  core-item {
+    padding: 0.9em 1em;
+  }
 
-    img.big-icon {
+  .nav-header {
+    font-weight: normal;
+    margin-left: 16px;
+    opacity: 0.54;
+  }
 
-    }
-    .big-icon {
-      color: #737373;
-      width: 26px;
-      height: 26px;
-    }
-
-    .nav-header {
-      font-weight: normal;
-      margin-left: 16px;
-      opacity: 0.54;
-    }
-
-    .nav-text {
-      margin-left: 24px;
-    }
+  .nav-text {
+    margin-left: 16px;
   }
 }
 
