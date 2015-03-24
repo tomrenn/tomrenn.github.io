@@ -3,6 +3,17 @@
 
 /* styles for the custom element itself - lowest specificity */
 :host {
+	font-family: roboto, 'Helvetica Neue', Arial, sans-serif;
+	display: block;
+	border-bottom: 1px solid #e6e6e6;
+
+	p {
+		line-height: 1.4em;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: roboto-light, 'Helvetica Neue', Arial, sans-serif;
+	}
 }
 
 paper-shadow {

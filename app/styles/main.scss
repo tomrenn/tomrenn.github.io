@@ -4,7 +4,7 @@ $accent-color: #FF5722; /* deep orange */
 
 body {
   background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   color: #333;
 }
 
@@ -110,8 +110,10 @@ paper-dialog {
   }
 
   .nav-header {
+    /*border-top: 1px solid #e6e6e6;*/
     font-weight: normal;
     margin-left: 16px;
+    margin-bottom: 10px;
     opacity: 0.54;
   }
 
