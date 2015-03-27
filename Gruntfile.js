@@ -5,6 +5,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
+  grunt.loadTasks('tasks');
 
   // configurable paths
   var yeomanConfig = {
@@ -219,6 +220,7 @@ module.exports = function (grunt) {
             '*.{ico,txt}',
             '.htaccess',
             '*.html',
+	          'posts/*',
             'elements/**',
             '!elements/**/*.scss',
             'images/{,*/}*.{webp,gif}'
@@ -237,7 +239,19 @@ module.exports = function (grunt) {
           dest: '.tmp',
           src: ['{styles,elements}/{,*/}*.css']
         }]
-      }
+      },
+    },
+    publish: {
+        options: {source: '<%= yeoman.app %>'},
+        default: {
+          files: [{
+            expand: true,
+            cwd: '<%= yeoman.app %>',
+            src: 'posts/*.md',
+            dest: '<%= yeoman.dist %>'
+          }]
+        }
+        // options: {example: '<%= yeoman.app %>'}
     },
     // See this tutorial if you'd like to run PageSpeed
     // against localhost: http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/
@@ -260,6 +274,12 @@ module.exports = function (grunt) {
       }
     }
   });
+
+  // grunt.registerTask('publish', 'Take markdown post files and convert to JSON', function (target) {
+  //   // perform publish script
+  //   grunt.log.writeln('---');
+  //   grunt.log.writeln(JSON.stringify(this, null, 2));
+  // });
 
   grunt.registerTask('server', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
