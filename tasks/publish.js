@@ -1,7 +1,7 @@
 // This script is intended to parse markdown representing posts and generate
 // html content
 //
-// usage: publish post[ ...] 
+// usage: publish post[ ...]
 // -----
 
 
@@ -16,10 +16,11 @@ module.exports = function(grunt) {
   // bugfix for stupid hljs class not getting added
   // https://github.com/chjj/marked/pull/418
   renderer.code = function(code, language){
-    return '<pre><code class="hljs ' + language + '">' + 
+    return '<pre><code class="hljs ' + language + '">' +
       hljs.highlight(language, code).value +
       '</code></pre>';
   };
+  // config markdown options
   marked.setOptions({
     renderer: renderer,
     highlight: function (code) {
@@ -27,96 +28,37 @@ module.exports = function(grunt) {
     }
   });
 
-  var POSTS_PER_PAGE = 5;
-  var OUTPUT_DIR = 'dist/posts'
-  // var posts = process.argv.slice(2); // posts
-  var pages = [];
+  var publishDesc = 'Turn Markdown into HTML'
 
-  var childProcess = require('child_process');
-
-
-
-  grunt.registerMultiTask('publish', 'description', function() {
+  grunt.registerMultiTask('publish', publishDesc, function() {
     var done = this.async();
     var page = {};
+    var options = this.options();
+    var output = options.output;
+    if (output === undefined){
+      grunt.fail.fatal('An \'output\' file in options must be specified.');
+    }
+
+    // store simple array of filenames for all posts
+    var postFilenames = this.files.map(function (file){
+      return file.src[0];
+    });
+    page['posts'] = postFilenames;
 
 
+    // read file and turn markdown into html
     async.forEach(this.files, function(file, callback) {
-      grunt.log.writeln(file.src + " | " + file.dest);
       var filename = file.src.filename;
-
       var data = grunt.file.read(file.src);
-      var html = marked(data);
 
-      page[file.src] = html;
-      // grunt.log.writeln(html);
-      // fs.readFile(filename, 'utf8', function(err, data) {
-      //   var html = marked(data);
-
-      //   page[filename] = html;
-
-      //   // all posts have been transformed in the page
-      //   var pageFilename = OUTPUT_DIR + '/page-' + index + '.json';
-      //   fs.writeFile(pageFilename, JSON.stringify(page, null, 2), function(err){
-      //     if (err){
-      //       console.log(err);
-      //     }
-      //   });
-
-      // });
+      page[file.src] = marked(data);
       callback();
     }, function(err) {
-        grunt.log.writeln('iterating done');
-        grunt.log.writeln(JSON.stringify(page, null, 2));
+        // write page file
+        grunt.file.write(output, JSON.stringify(page, null, 2));
         done();
-    });    
+    });
 
-    // done();
   });
 
 };
-
-// while (posts.length > 0){
-//   page = {};
-//   page['posts'] = posts.splice(0, POSTS_PER_PAGE);
-//   pages.push(page);
-// }
-
-// if (!fs.existsSync(OUTPUT_DIR)){
-//   fs.mkdirSync(OUTPUT_DIR)
-// }
-
-
-
-
-// pages.forEach(function(page, index){
-
-//   var posts = page['posts'];
-
-//   posts.forEach(function(filename) {
-//     fs.readFile(filename, 'utf8', function(err, data) {
-//       var html = marked(data);
-//       // var newFilename = path.basename(filename, '.md') + '.html';
-
-//       page[filename] = html;
-
-//       // if all posts have been transformed, write to file
-//       for (var i=0; i<posts.length; i++){
-//         if (!(filename in page)){
-//           return;
-//         }
-//       }
-//       // all posts have been transformed in the page
-//       var pageFilename = OUTPUT_DIR + '/page-' + index + '.json';
-//       fs.writeFile(pageFilename, JSON.stringify(page, null, 2), function(err){
-//         if (err){
-//           console.log(err);
-//         }
-//       });
-
-//     });
-//   });
-
-// })
-
-
