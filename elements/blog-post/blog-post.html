@@ -1,0 +1,16 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="blog-post" attributes="contents">
+  <template>
+    <link rel="stylesheet" href="blog-post.css">
+    <div id="post_content">
+    </div>
+  </template>
+  <script>
+    Polymer({
+      ready: function() {
+        this.$.post_content.innerHTML = this.contents;
+      }
+    });
+  </script>
+</polymer-element>
