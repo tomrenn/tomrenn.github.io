@@ -12,7 +12,7 @@
     {label: 'LinkedIn', img: 'linkedin/grey-66px.png', link: 'https://linkedin.com/in/tomrenn'},
     {label: 'GitHub', img: 'github-grey-64px.png', link: 'https://github.com/tomrenn'},
   ];
- 
+
   app.tomFacts = [
     {label: 'Can juggle', checked: true},
     {label: 'Finished a MOOC',
@@ -28,10 +28,6 @@
 
   var polyStatusButton = app.querySelector("[icon=help]");
   var polyStatusDialog = app.querySelector('#polymerStatus');
-  // polyStatusButton.addEventListener("click", function(){
-  //   console.log('wtf');
-  //   polyStatusDialog.toggle();
-  // });
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
@@ -39,7 +35,7 @@
     console.log('Our app is ready to rock!');
 
     var ajax = document.querySelector("core-ajax");
-    ajax.addEventListener("core-response", 
+    ajax.addEventListener("core-response",
       function(e) {
         console.log(e.detail.response.posts);
         var data = e.detail.response;

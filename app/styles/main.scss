@@ -4,11 +4,9 @@ $accent-color: #FF5722; /* deep orange */
 
 body {
   background: #fafafa;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'RobotoDraft', Helvetica, Arial, sans-serif;
   color: #333;
 }
-
-
 
 .big-icon {
   color: #737373;
@@ -84,9 +82,9 @@ paper-dialog {
   }
 
   .banner {
-    background: 
+    background:
       linear-gradient(
-        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, 0.3),
         rgba(0, 0, 0, 0.3)
       ),
       url("../images/banner.png");

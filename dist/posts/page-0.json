@@ -1,8 +1,0 @@
-{
-  "posts": [
-    "app/posts/2015-03-19.md",
-    "app/posts/page-0.json"
-  ],
-  "app/posts/2015-03-19.md": "<!-- First post -->\n<h1 id=\"new-website-new-tech\">New website, new tech</h1>\n<p>March 22, 2015</p>\n<p>It has been well overdue to move away from Wordpress. Months ago\nI came across developer videos from Google about <a href=\"https://www.polymer-project.org/\">Polymer</a>\nand <a href=\"http://webcomponents.org/\">web components.</a> It was cool seeing\nMaterial design becoming available for the web but even more fascinating is\nthe technology behind it. Polymer is still in experimential stages but\nweb component are standardized (even though not all browsers have support).</p>\n<p>Aside from that, woohoo! <code>WIP</code></p>\n",
-  "app/posts/page-0.json": "<p>{\n  &quot;posts&quot;: [\n    &quot;app/posts/2015-03-19.md&quot;\n  ],\n  &quot;app/posts/2015-03-19.md&quot;: &quot;<!-- First post -->\\n<h1 id=\\\"new-website-new-tech\\\">New website, new tech</h1>\\n<p>It has been well overdue to move away from Wordpress. A few months ago\\nI saw some developer videos from Google about <a href=\\\"http://webcomponents.org/\\\">Polymer</a>\\nand <a href=\\\"http://webcomponents.org/\\\">web components.</a>\\nAlthough the project is still experimential the specs have been standardized, and\\nchrome (including Android) has full native support.</p>\\n<p>Aside from that, woohoo! WIP</p>\\n&quot;\n}</p>\n"
-}
