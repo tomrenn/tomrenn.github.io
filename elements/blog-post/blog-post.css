@@ -1,1 +1,1 @@
-:host{font-family:roboto, 'Helvetica Neue', Arial, sans-serif;display:block;border-bottom:1px solid #e6e6e6}:host p{line-height:1.4em}:host h1,:host h2,:host h3,:host h4,:host h5,:host h6{font-family:roboto-light, 'Helvetica Neue', Arial, sans-serif}paper-shadow{padding:20px}
+:host{display:block;border-bottom:1px solid #e6e6e6}:host p{line-height:1.4em}:host h1,:host h2,:host h3,:host h4,:host h5,:host h6{font-weight:400}paper-shadow{padding:20px}
