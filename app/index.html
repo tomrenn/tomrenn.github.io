@@ -30,8 +30,10 @@
 
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+
   <!-- will be replaced with elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
+  <link rel="import" href="routes.html">
   <!-- endreplace-->
 </head>
 
@@ -57,16 +59,18 @@
         </div>
 
         <!-- Drawer Content -->
-        <core-menu selected="{{selectedPage}}">
-          <paper-item name="posts">
-            <core-icon class="big-icon" icon="view-stream"> </core-icon>
-            <span class="nav-text"> Posts </span>
-          </paper-item>
-          <paper-item name="about">
-            <core-icon class="big-icon" icon="account-box"> </core-icon>
-            <span class="nav-text"> About </span>
-          </paper-item>
-        </core-menu>
+        <more-route-selector>
+          <core-menu selected="{{selectedPage}}">
+            <paper-item name="posts" route="posts">
+              <core-icon class="big-icon" icon="view-stream"> </core-icon>
+              <span class="nav-text"> Posts </span>
+            </paper-item>
+            <paper-item name="about" route="about">
+              <core-icon class="big-icon" icon="account-box"> </core-icon>
+              <span class="nav-text"> About </span>
+            </paper-item>
+          </core-menu>
+        </more-route-selector>
 
 
         <h4 class="nav-header"> Social </h4>
@@ -88,29 +92,31 @@
         </core-toolbar>
 
         <!-- Main Content -->
-        <core-pages selected="{{selectedPage}}">
-          <div name="posts" class="post-column">
-            <template repeat="{{post in posts}}">
-              <blog-post contents="{{post}}"></blog-post>
-            </template>
-          </div>
-
-          <div name="about">
-            <div class="hero-unit">
-              <h1> Tom Facts </h1>
-
-              <template repeat="{{fact in tomFacts}}">
-                <paper-checkbox checked="{{fact.checked}}"
-                  label="{{fact.label}}"> </paper-checkbox>
-                <template if="{{fact.hasLink}}">
-                  <a href="{{fact.link}}">
-                    <core-icon icon="link"></core-icon></a>
-                </template>
-                <br/>
+        <more-route-selector selectedParams="{{params}}">
+          <core-pages selected="{{selectedPage}}">
+            <div name="posts" route="posts" class="post-column">
+              <template repeat="{{post in posts}}">
+                <blog-post contents="{{post}}"></blog-post>
               </template>
             </div>
-          </div>
-        </core-pages>
+
+            <div name="about" route="about">
+              <div class="hero-unit">
+                <h1> Tom Facts </h1>
+
+                <template repeat="{{fact in tomFacts}}">
+                  <paper-checkbox checked="{{fact.checked}}"
+                    label="{{fact.label}}"> </paper-checkbox>
+                  <template if="{{fact.hasLink}}">
+                    <a href="{{fact.link}}">
+                      <core-icon icon="link"></core-icon></a>
+                  </template>
+                  <br/>
+                </template>
+              </div>
+            </div>
+          </core-pages>
+        </more-route-selector>
       </core-header-panel>
     </core-drawer-panel>
   </template>
