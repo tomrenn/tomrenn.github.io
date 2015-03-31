@@ -179,8 +179,7 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.dist %>/elements/elements.vulcanized.html': [
-            '<%= yeoman.dist %>/elements/elements.html',
-            '<%= yeoman.dist %>/routes.html'
+            '<%= yeoman.dist %>/elements/elements.html'
           ]
         }
       }
