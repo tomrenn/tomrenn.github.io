@@ -1,4 +1,4 @@
-title: Long Haul
+title: Tom Renn
 description: Long Form Jekyll theme built with SASS / COMPASS / SUSY
 
 url: http://brianmaierjr.github.com/long-haul
@@ -19,9 +19,8 @@ navigation:
    url: /contact
 
 social:
-   github: brianmaierjr
-   twitter: brianmaierjr
-   facebook: brianmaierjr
-   email: brimaidesigns@gmail.com
+   github: tomrenn
+   twitter: tomrenn
+   email: tom.renn@dowjones.com
 
-google_analytics: "UA-58263416-1"
+# google_analytics: "UA-58263416-1"
