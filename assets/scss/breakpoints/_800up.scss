@@ -74,6 +74,10 @@ HEADER STYLING
 		padding-left: 0;
 	}
 
+	.logo {
+		text-shadow: 2px 3px $primary-color;
+	}
+
 	nav {
 		float: left;
 		clear: left;
