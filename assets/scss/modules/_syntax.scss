@@ -4,7 +4,20 @@
   http://sourcey.com
 ***************/
 
+// Styles simple inline code items using backticks (`)
+code {
+  padding: 0px 5px 2px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  color: #555;
+}
+
 .highlight {
+  code {  // undo the simple styles from above
+    border: 0px;
+    padding: 0px;
+  }
+
   white-space: pre; 
   overflow: auto; 
   word-wrap: normal; /* horizontal scrolling */
